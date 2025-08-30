@@ -23,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     setIsVisible(true);
 
-    // Enhanced intersection observer for scroll animations
+    // Enhanced intersection observer for scroll Animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -263,37 +263,52 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             {achievements.map((achievement, index) => (
               <div
                 key={index}
-                className="text-center group hover-lift transition-smooth"
+                className="text-center group relative p-8 rounded-3xl transition-all duration-500 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-2"
                 data-animation="scale-in"
                 data-delay={`${(index + 1) * 200}`}
               >
-                <div className="relative">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-slate-800 rounded-2xl mb-6 hover-scale transition-smooth">
-                    <achievement.icon className="w-10 h-10 text-white" />
+                {/* Hover Background Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="relative mb-6">
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-slate-800 rounded-2xl group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-2xl transition-all duration-500">
+                      <achievement.icon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-500" />
+                    </div>
+                    {/* Animated Ring */}
+                    <div className="absolute inset-0 w-20 h-20 mx-auto rounded-2xl border-2 border-slate-300 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500"></div>
                   </div>
+
+                  <div className="text-4xl font-bold font-ibm-plex text-slate-900 mb-2 group-hover:text-slate-800 group-hover:scale-105 transition-all duration-300">
+                    {achievement.metric}
+                  </div>
+
+                  <div className="text-sm text-slate-500 mb-3 uppercase tracking-wide group-hover:text-slate-600 transition-colors duration-300">
+                    {achievement.label}
+                  </div>
+
+                  <h3 className="text-xl font-semibold font-ibm-plex text-slate-900 mb-3 group-hover:text-slate-800 transition-colors duration-300">
+                    {achievement.title}
+                  </h3>
+
+                  <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                    {achievement.description}
+                  </p>
                 </div>
-                <div className="text-4xl font-bold font-ibm-plex text-slate-900 mb-2">
-                  {achievement.metric}
-                </div>
-                <div className="text-sm text-slate-500 mb-3 uppercase tracking-wide">
-                  {achievement.label}
-                </div>
-                <h3 className="text-xl font-semibold font-ibm-plex text-slate-900 mb-3">
-                  {achievement.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {achievement.description}
-                </p>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-slate-200 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700 delay-200"></div>
+                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-slate-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700 delay-300"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section className="py-24 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
