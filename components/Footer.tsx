@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import Link from "next/link";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,22 +14,36 @@ export default function Footer() {
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-2xl font-playfair">M</span>
+                  <span className="text-white font-bold text-2xl font-heading">
+                    M
+                  </span>
                 </div>
-                <span className="text-2xl font-bold font-playfair">Moldcraft</span>
+                <span className="text-2xl font-bold font-heading">
+                  Moldcraft
+                </span>
               </Link>
               <p className="text-slate-300 leading-relaxed mb-6 max-w-md">
-                Leading manufacturer specializing in precision molding solutions and advanced manufacturing technologies. 
-                We deliver excellence through innovation and quality craftsmanship.
+                Leading manufacturer specializing in precision molding solutions
+                and advanced manufacturing technologies. We deliver excellence
+                through innovation and quality craftsmanship.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors">
+                <a
+                  href="#"
+                  className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors"
+                >
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors">
+                <a
+                  href="#"
+                  className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors"
+                >
                   <Twitter className="w-5 h-5" />
                 </a>
-                <a href="#" className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors">
+                <a
+                  href="#"
+                  className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors"
+                >
                   <Facebook className="w-5 h-5" />
                 </a>
               </div>
@@ -37,12 +51,21 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold font-playfair mb-6">Quick Links</h3>
+              <h3 className="text-lg font-semibold font-heading mb-6">
+                Quick Links
+              </h3>
               <ul className="space-y-4">
-                {['Home', 'About', 'Products', 'Services', 'Team', 'Contact'].map((item) => (
+                {[
+                  "Home",
+                  "About",
+                  "Products",
+                  "Services",
+                  "Team",
+                  "Contact",
+                ].map((item) => (
                   <li key={item}>
-                    <Link 
-                      href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    <Link
+                      href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                       className="text-slate-300 hover:text-white transition-colors"
                     >
                       {item}
@@ -54,23 +77,31 @@ export default function Footer() {
 
             {/* Contact Info */}
             <div>
-              <h3 className="text-lg font-semibold font-playfair mb-6">Contact Info</h3>
+              <h3 className="text-lg font-semibold font-heading mb-6">
+                Contact Info
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                   <span className="text-slate-300 text-sm">
-                    123 Industrial Avenue<br />
-                    Manufacturing District<br />
+                    123 Industrial Avenue
+                    <br />
+                    Manufacturing District
+                    <br />
                     City, State 12345
                   </span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                  <span className="text-slate-300 text-sm">+1 (555) 123-4567</span>
+                  <span className="text-slate-300 text-sm">
+                    +1 (555) 123-4567
+                  </span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                  <span className="text-slate-300 text-sm">info@moldcraft.com</span>
+                  <span className="text-slate-300 text-sm">
+                    info@moldcraft.com
+                  </span>
                 </li>
               </ul>
             </div>
@@ -84,13 +115,22 @@ export default function Footer() {
               © {currentYear} Moldcraft. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="#" className="text-slate-400 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 Cookie Policy
               </Link>
             </div>

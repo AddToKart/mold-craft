@@ -2,14 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --font-inter: 'Inter', sans-serif;
-  --font-playfair: 'Playfair Display', serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,7 +44,7 @@
     --chart-5: 340 75% 55%;
     --radius: 0.75rem;
   }
-  
+
   .dark {
     --background: 220 15% 6%;
     --foreground: 0 0% 98%;
@@ -81,18 +77,196 @@
   * {
     @apply border-border;
   }
-  
+
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
-  .font-playfair {
-    font-family: var(--font-playfair);
+
+  /* Professional Typography Hierarchy - Same Font Family */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
   }
-  
-  .font-inter {
-    font-family: var(--font-inter);
+
+  p,
+  span,
+  div,
+  li,
+  td,
+  th {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
+  }
+
+  .font-heading {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
+  }
+}
+
+/* Professional Typography System */
+@layer utilities {
+  /* Consistent IBM Plex Sans across all elements */
+  .text-heading {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif !important;
+    font-weight: 600;
+  }
+
+  .text-body {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif !important;
+    font-weight: 400;
+  }
+
+  /* Professional typography scale */
+  .heading-xl {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .heading-lg {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .heading-md {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .heading-sm {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .body-lg {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .body-md {
+    font-family: var(--font-ibm-plex), "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Professional Animations - Subtle & Engaging */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-bounce {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Professional hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Elegant fade-in animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  /* Staggered animation delays */
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  /* Button effects for CTAs */
+  .button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .button-glow:hover::before {
+    left: 100%;
   }
 }
 
@@ -119,7 +293,71 @@ html {
   background: #475569;
 }
 
-/* Animation utilities */
+/* Modern Professional Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Legacy animations updated */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -205,7 +443,8 @@ html {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -214,7 +453,8 @@ html {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
   50% {
@@ -268,7 +508,12 @@ html {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
@@ -319,8 +564,7 @@ html {
 }
 
 .bg-gradient-mesh {
-  background: 
-    radial-gradient(at 40% 20%, #1e293b 0px, transparent 50%),
+  background: radial-gradient(at 40% 20%, #1e293b 0px, transparent 50%),
     radial-gradient(at 80% 0%, #334155 0px, transparent 50%),
     radial-gradient(at 0% 50%, #0f172a 0px, transparent 50%),
     radial-gradient(at 80% 50%, #1e293b 0px, transparent 50%),
@@ -359,9 +603,35 @@ html {
 }
 
 /* Stagger animations */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+.stagger-6 {
+  animation-delay: 0.6s;
+}
+
+/* Scale-in animation */
+.scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
